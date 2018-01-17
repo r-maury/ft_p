@@ -1,3 +1,10 @@
+# uncomment for vogsphere
+#note.txt
+#ft_p.sublime*
+#.gitignore
+#res/*
+#README.md
+
 # Prerequisites
 *.d
 
