@@ -1,5 +1,8 @@
 __SOCKET(2)__
 int socket(int domain, int type, int protocol); 
 	domain: PF_INET (IPv4)
-	type: 
-	protocol:
+	type: ? SOCK_STREAM??
+	protocol: nul
+
+__SETSOCKOPT__
+int setsockopt(int sockfd, int level, int optname, const void *optval, socklen_t optlen);
