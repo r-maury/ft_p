@@ -6,7 +6,7 @@
 /*   By: rmaury <rmaury@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 17:37:58 by rmaury            #+#    #+#             */
-/*   Updated: 2018/01/18 14:11:12 by rmaury           ###   ########.fr       */
+/*   Updated: 2018/01/18 14:18:43 by rmaury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 int main(int argc, char const **argv)
 {
 	printf("%s\n", argv[1]);
-	printf("%i\n", atoi(argv[0]));
+	printf("%i\n", atoi(argv[1]));
 	atoi(argv[1]);
 	
 	if (argc != 2 || *argv[1])
