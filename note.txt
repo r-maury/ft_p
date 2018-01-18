@@ -6,3 +6,5 @@ int socket(int domain, int type, int protocol);
 
 __SETSOCKOPT__
 int setsockopt(int sockfd, int level, int optname, const void *optval, socklen_t optlen);
+	level: TCP
+	

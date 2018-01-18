@@ -7,6 +7,15 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "note.txt",
+			"settings":
+			{
+				"buffer_size": 231,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -15,16 +24,20 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 358.0,
-		"last_filter": "inst",
+		"height": 119.0,
+		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"42",
+				"42 headers: toggle"
+			],
 			[
 				"inst",
 				"Package Control: Install Package"
 			]
 		],
-		"width": 444.0
+		"width": 412.0
 	},
 	"console":
 	{
@@ -44,10 +57,18 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/rmaury/work/CProjects/ft_p"
+		"/Users/rmaury/work/CProjects/ft_p",
+		"/Users/rmaury/work/CProjects/ft_p/includes",
+		"/Users/rmaury/work/CProjects/ft_p/src"
 	],
 	"file_history":
 	[
+		"/Users/rmaury/work/CProjects/ft_p/src/main.c",
+		"/Users/rmaury/work/CProjects/ft_p/auteur",
+		"/Users/rmaury/work/CProjects/ft_p/.gitignore",
+		"/Users/rmaury/work/CProjects/ft_p/includes/ft_p.h",
+		"/Users/rmaury/work/CProjects/ft_p/Makefile",
+		"/Volumes/Storage/cache/rmaury/Library/Application Support/Sublime Text 3/Packages/User/42-headers.sublime-settings"
 	],
 	"find":
 	{
@@ -82,8 +103,38 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "note.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 231,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								231,
+								231
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -93,7 +144,7 @@
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 35.0
 	},
 	"layout":
 	{
