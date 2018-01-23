@@ -6,7 +6,7 @@
 /*   By: rmaury <rmaury@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 17:37:49 by rmaury            #+#    #+#             */
-/*   Updated: 2018/01/18 14:11:23 by rmaury           ###   ########.fr       */
+/*   Updated: 2018/01/23 18:28:16 by rmaury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <sys/types.h>
 # include <sys/socket.h>
+# include <netdb.h>
 # include "libft.h"
 
 #endif

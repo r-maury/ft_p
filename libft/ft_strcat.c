@@ -6,7 +6,7 @@
 /*   By: rmaury <rmaury@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/05 13:55:20 by rmaury            #+#    #+#             */
-/*   Updated: 2014/11/13 00:01:45 by rmaury           ###   ########.fr       */
+/*   Updated: 2018/01/23 16:54:25 by rmaury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ char	*ft_strcat(char *s1, const char *s2)
 	unsigned int	i;
 	int				len;
 
-	len = ft_strlen(s1);
 	i = 0;
+	len = ft_strlen(s1);
 	while (s2[i])
 	{
 		s1[len + i] = s2[i];
