@@ -6,7 +6,7 @@
 /*   By: rmaury <rmaury@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 17:37:58 by rmaury            #+#    #+#             */
-/*   Updated: 2018/01/23 20:25:12 by rmaury           ###   ########.fr       */
+/*   Updated: 2018/04/04 16:48:13 by rmaury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,19 @@
 
 int main(int argc, char const **argv)
 {
-	int sock_fd;
-	int reuse;
-	struct sockaddr_in server_addr;
+	int 				sock_fd;
+	int 				reuse;
+	struct sockaddr_in 	server_addr;
+	struct sockaddr_in 	client_addr;
+	socklen_t 			client_size;
 
 	reuse = 1;
 
 	if (argc != 2) 
 	{
-		ft_putendl_fd(ft_strjoin("Usage: ", ft_strjoin(argv[0], " port")), 2);
-		return(0);
+		printf("Usage: %s <port>\n", argv[0]);
+		// ft_putendl_fd(ft_strjoin("Usage: ", ft_strjoin(argv[0], " port")), 2);
+		return (0);
 	}
 
 	sock_fd = socket(PF_INET, SOCK_STREAM, 0);
@@ -40,8 +43,9 @@ int main(int argc, char const **argv)
 
 	while(42)
 	{
-		accept(sock_fd, *client_addr, client_len);
+		client_size = sizeof(client_addr);
+		accept(sock_fd, (struct sockaddr *) &client_addr, &client_size);
 	}
 
-	return(0);
+	return (0);
 }
