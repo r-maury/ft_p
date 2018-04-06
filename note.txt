@@ -25,3 +25,9 @@ La volonté d'accepter des connexions entrantes et une limite de file pour les c
 
 4.
 Les connexions sont acceptées avec accept(2).
+
+
+
+
+_COMMANDS`
+ifconfig | grep "inet" | grep -v 127.0.0.1
