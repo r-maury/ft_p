@@ -6,7 +6,7 @@
 /*   By: rmaury <rmaury@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 17:37:58 by rmaury            #+#    #+#             */
-/*   Updated: 2018/04/06 16:40:24 by rmaury           ###   ########.fr       */
+/*   Updated: 2018/04/10 16:52:44 by rmaury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int main(int argc, char const **argv)
 	if (argc != 2) 
 	{
 		printf("Usage: %s <port>\n", argv[0]);
-		// ft_putendl_fd(ft_strjoin("Usage: ", ft_strjoin(argv[0], " port")), 2);
 		return (0);
 	}
 

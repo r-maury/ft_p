@@ -6,7 +6,7 @@
 /*   By: rmaury <rmaury@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 15:30:51 by rmaury            #+#    #+#             */
-/*   Updated: 2018/04/06 16:42:48 by rmaury           ###   ########.fr       */
+/*   Updated: 2018/04/10 16:51:58 by rmaury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 // DEBUG INCLUDES >> to delete
@@ -52,6 +52,7 @@ int main(int argc, char const **argv)
 	printf("addr = %u\nfamily = %i\nport = %i\n", server_addr.sin_addr.s_addr, server_addr.sin_family, ntohs(server_addr.sin_port));
 
 	sockfd = socket(server_addr.sin_family, SOCK_STREAM, 0);
+
 	printf("socket error = %s\n", strerror(errno));
 	printf("socket = %i\n", sockfd);
 
