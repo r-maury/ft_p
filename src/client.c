@@ -6,7 +6,7 @@
 /*   By: rmaury <rmaury@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 15:30:51 by rmaury            #+#    #+#             */
-/*   Updated: 2018/04/10 16:51:58 by rmaury           ###   ########.fr       */
+/*   Updated: 2018/04/10 18:53:31 by rmaury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 // DEBUG INCLUDES >> to delete
@@ -21,10 +21,34 @@
 // END DEBUG INCLUDES >> to delete
 #include "client.h"
 
+int		g_prompt = 0;
+
+void	exit_server(char *str, int sockfd)
+{
+	close(sockfd);
+	if (ft_strcmp(str, "exit") == 0)
+	{
+		ft_putendl("exit");
+		exit(0);
+	}
+}
+
+void	empty_line(char *line)
+{
+	if (line[0] == 0)
+	{
+		ft_putstr(">> ");
+		g_prompt = 1;
+	}
+	else
+		g_prompt = 0;
+}
+
 int main(int argc, char const **argv) 
 {
 	int 				sockfd;
 	int 				r;
+	char				*line;
 	struct sockaddr_in 	server_addr;
 	struct hostent 		*server_info;
 
@@ -60,6 +84,13 @@ int main(int argc, char const **argv)
 	printf("connect error = %s\n", strerror(errno));
 	printf("Connect = %i\n", r);
 
-	close(sockfd);
+	while(42)
+	{
+		g_prompt == 1 ? g_prompt = 0 : ft_putstr(FT_PROMPT);
+		if(get_next_line(0, &line) == 0)
+			exit_server("exit", sockfd);
+		if(ft_strcmp(line, "exit") == 0)
+			exit_server("exit", sockfd);
+	}
 	return (0);
 }

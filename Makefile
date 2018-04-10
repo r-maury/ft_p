@@ -6,7 +6,7 @@
 #    By: rmaury <rmaury@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/17 17:46:02 by rmaury            #+#    #+#              #
-#    Updated: 2018/02/21 18:22:57 by rmaury           ###   ########.fr        #
+#    Updated: 2018/04/10 18:19:23 by rmaury           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,9 @@ INCDIR = includes/
 LIBDIR = Libft/libft.a
 
 S_SRC +=	server.c
+
 C_SRC +=	client.c
+C_SRC +=	get_next_line.c
 
 SRCS = $(addprefix $(SRCDIR)/, $(SRC))
 S_OBJS = $(addprefix $(OBJDIR)/, $(S_SRC:.c=.o))
