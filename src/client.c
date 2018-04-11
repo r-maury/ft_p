@@ -6,91 +6,86 @@
 /*   By: rmaury <rmaury@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 15:30:51 by rmaury            #+#    #+#             */
-/*   Updated: 2018/04/10 18:53:31 by rmaury           ###   ########.fr       */
+/*   Updated: 2018/04/11 15:48:12 by rmaury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 // DEBUG INCLUDES >> to delete
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include <errno.h>
-#include <unistd.h>
-#include <netdb.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
 // END DEBUG INCLUDES >> to delete
 #include "client.h"
 
 int		g_prompt = 0;
 
-void	exit_server(char *str, int sockfd)
+void	quit_server(int sockfd)
 {
+	ft_putendl("Quitting Ft_p, goodbye...");
 	close(sockfd);
-	if (ft_strcmp(str, "exit") == 0)
-	{
-		ft_putendl("exit");
-		exit(0);
-	}
+	exit(0);
 }
 
-void	empty_line(char *line)
+void	exec_command(char *command, int sockfd)
 {
-	if (line[0] == 0)
+	char	pwd[10000];
+
+	if (ft_strcmp(command, "quit") == 0)
+		quit_server(sockfd);
+	else if (ft_strcmp(command, "pwd") == 0)
 	{
-		ft_putstr(">> ");
-		g_prompt = 1;
+		printf("%s\n", getcwd(pwd, 100));
+		printf("%s\n", strerror(errno));
 	}
-	else
-		g_prompt = 0;
 }
 
-int main(int argc, char const **argv) 
+int 	connection_setup(char* host, char* port)
 {
 	int 				sockfd;
-	int 				r;
-	char				*line;
 	struct sockaddr_in 	server_addr;
 	struct hostent 		*server_info;
 
-	if(argc != 3)
-	{
-		printf("Usage: %s <machine> <port>\n", argv[0]);
-		return (1);
-	}
-
 	ft_memset(&server_addr, 0, sizeof(server_addr));
 
-	if((server_info = gethostbyname(argv[1])) == NULL)
+	if ((server_info = gethostbyname(host)) == NULL)
 	{
 		printf("gethostbyname error = %s\n", strerror(errno));	
 		return (1);
 	}
 
-	printf("addr name = %s\n", server_info->h_name);
-	printf("addr type = %i\n", server_info->h_addrtype);
-
-
 	server_addr.sin_addr.s_addr = inet_addr(inet_ntoa(*((struct in_addr *)server_info->h_addr)));
 	server_addr.sin_family = AF_INET;
-	server_addr.sin_port = htons(ft_atoi(argv[2]));
-	printf("addr = %u\nfamily = %i\nport = %i\n", server_addr.sin_addr.s_addr, server_addr.sin_family, ntohs(server_addr.sin_port));
+	server_addr.sin_port = htons(ft_atoi(port));
 
 	sockfd = socket(server_addr.sin_family, SOCK_STREAM, 0);
 
-	printf("socket error = %s\n", strerror(errno));
-	printf("socket = %i\n", sockfd);
+	if (connect(sockfd, (struct sockaddr*)&server_addr, sizeof(server_addr)) == -1)
+	{
+		printf("CONNECTION TO %s:%i \033[31mERROR\033[0;m!\n", server_info->h_name, ntohs(server_addr.sin_port));
+		quit_server(sockfd);
+	}
+	else
+		printf("CONNECTION TO %s:%i \033[32mSUCCESS\033[0;m!\n", server_info->h_name, ntohs(server_addr.sin_port));	
+	return (sockfd);
+}
 
-	r = connect(sockfd, (struct sockaddr*)&server_addr, sizeof(server_addr));
-	printf("connect error = %s\n", strerror(errno));
-	printf("Connect = %i\n", r);
+int main(int argc, char **argv) 
+{
+	char	*line;
+	int 	sockfd;
 
-	while(42)
+	if (argc != 3)
+	{
+		printf("Usage: %s <machine> <port>\n", argv[0]);
+		return (1);
+	}
+
+	sockfd = connection_setup(argv[1], argv[2]);
+
+	while (42)
 	{
 		g_prompt == 1 ? g_prompt = 0 : ft_putstr(FT_PROMPT);
-		if(get_next_line(0, &line) == 0)
-			exit_server("exit", sockfd);
-		if(ft_strcmp(line, "exit") == 0)
-			exit_server("exit", sockfd);
+		if (get_next_line(0, &line) == 0)
+			quit_server(sockfd);
+		else
+			exec_command(line, sockfd);
 	}
 	return (0);
 }

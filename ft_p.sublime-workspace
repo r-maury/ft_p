@@ -4,24 +4,40 @@
 		"selected_items":
 		[
 			[
-				"ser",
+				"ft",
+				"ft_strcmp"
+			],
+			[
+				"servera",
 				"server_addr"
+			],
+			[
+				"se",
+				"server_addr"
+			],
+			[
+				"server_",
+				"server_addr"
+			],
+			[
+				"ser",
+				"server_info"
+			],
+			[
+				"ar",
+				"argv"
+			],
+			[
+				"s",
+				"sockfd"
 			],
 			[
 				"sock",
 				"sock_fd"
 			],
 			[
-				"ar",
-				"argc"
-			],
-			[
 				"soc",
 				"sock_addr"
-			],
-			[
-				"ft",
-				"ft_putendl"
 			],
 			[
 				"a",
@@ -35,7 +51,7 @@
 			"file": "note.txt",
 			"settings":
 			{
-				"buffer_size": 847,
+				"buffer_size": 905,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -44,7 +60,7 @@
 			"file": "src/server.c",
 			"settings":
 			{
-				"buffer_size": 1563,
+				"buffer_size": 2041,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -53,16 +69,34 @@
 			"file": "Makefile",
 			"settings":
 			{
-				"buffer_size": 1579,
+				"buffer_size": 1824,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "includes/server.h",
+			"file": "src/client.c",
 			"settings":
 			{
-				"buffer_size": 1032,
+				"buffer_size": 2770,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "includes/get_next_line.h",
+			"settings":
+			{
+				"buffer_size": 1146,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "includes/client.h",
+			"settings":
+			{
+				"buffer_size": 199,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -115,6 +149,7 @@
 	],
 	"file_history":
 	[
+		"/Users/rmaury/work/CProjects/ft_p/includes/server.h",
 		"/Users/rmaury/work/CProjects/ft_p/libft/ft_strcat.c",
 		"/Users/rmaury/work/CProjects/ft_p/src/main.c",
 		"/Users/rmaury/work/CProjects/ft_p/auteur",
@@ -139,6 +174,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"_info",
+			"serverAddr",
+			");\n",
+			"0",
 			"server_address",
 			"5",
 			"socket_fd"
@@ -168,15 +207,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 847,
+						"buffer_size": 905,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								847,
-								847
+								862,
+								862
 							]
 						],
 						"settings":
@@ -188,7 +227,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -197,21 +236,22 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1563,
+						"buffer_size": 2041,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1545,
-								1545
+								2020,
+								2020
 							]
 						],
 						"settings":
 						{
 							"git_gutter_is_enabled": true,
-							"syntax": "Packages/C++/C.sublime-syntax"
+							"syntax": "Packages/C++/C.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -226,15 +266,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1579,
+						"buffer_size": 1824,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1291,
-								1291
+								1089,
+								1089
 							]
 						],
 						"settings":
@@ -246,24 +286,89 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
-				},
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
 				{
 					"buffer": 3,
-					"file": "includes/server.h",
+					"file": "src/client.c",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1032,
+						"buffer_size": 2770,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1032,
-								1032
+								2754,
+								2754
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/C++/C.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 421.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "includes/get_next_line.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1146,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1081,
+								1081
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "includes/client.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 199,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								163,
+								163
 							]
 						],
 						"settings":
@@ -298,11 +403,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5,
 			1.0
 		],
 		"rows":

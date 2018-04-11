@@ -6,7 +6,7 @@
 /*   By: rmaury <rmaury@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 17:37:58 by rmaury            #+#    #+#             */
-/*   Updated: 2018/04/10 18:59:46 by rmaury           ###   ########.fr       */
+/*   Updated: 2018/04/11 13:41:22 by rmaury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include <string.h>
 #include <errno.h>
 // END DEBUG INCLUDES >> to delete
-
 #include "server.h"
 
 int main(int argc, char const **argv)
@@ -24,7 +23,6 @@ int main(int argc, char const **argv)
 	int 				sock_fd;
 	int 				reuse;
 	int 				cli_status;
-	char*				line;
 	struct sockaddr_in 	server_addr;
 	struct sockaddr_in 	client_addr;
 	socklen_t 			client_size;
@@ -47,14 +45,11 @@ int main(int argc, char const **argv)
 	bind(sock_fd,(struct sockaddr*) &server_addr, sizeof(server_addr));
 	listen(sock_fd, 5);
 
-	while(42)
+	while (42)
 	{
 		client_size = sizeof(client_addr);
 		if((cli_status = accept(sock_fd, (struct sockaddr *) &client_addr, &client_size)) > -1)
 			printf("Connection established\n");
-		get_next_line(cli_status, &line);
-		if(line[0])
-			printf("in cli_status = %s\n--\n", line);
 	}
 
 	return (0);
