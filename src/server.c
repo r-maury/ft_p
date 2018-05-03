@@ -6,7 +6,7 @@
 /*   By: rmaury <rmaury@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 17:37:58 by rmaury            #+#    #+#             */
-/*   Updated: 2018/04/11 13:41:22 by rmaury           ###   ########.fr       */
+/*   Updated: 2018/05/03 18:27:54 by rmaury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,15 @@
 
 int main(int argc, char const **argv)
 {
+	pid_t				pid;
 	int 				sock_fd;
 	int 				reuse;
 	int 				cli_status;
 	struct sockaddr_in 	server_addr;
 	struct sockaddr_in 	client_addr;
 	socklen_t 			client_size;
+	char				buf[500];
+	char				buf2[500];
 
 	reuse = 1;
 
@@ -50,7 +53,28 @@ int main(int argc, char const **argv)
 		client_size = sizeof(client_addr);
 		if((cli_status = accept(sock_fd, (struct sockaddr *) &client_addr, &client_size)) > -1)
 			printf("Connection established\n");
-	}
+		else
+			printf("nique bien tadar\n");
+		
+		pid = fork();
 
+		if (pid > 0)
+			close(cli_status);
+		else if (pid == 0)
+		{
+			read(cli_status, &buf, 20);
+			printf("cli_status = %d\n", cli_status);
+			printf("msg = %s\n", buf);
+			if (ft_strcmp(buf, "pwd") == 0)
+			{
+				printf("%s\n", getcwd(buf2, 100));
+				send(cli_status, buf2, ft_strlen(buf2), 0);
+			}
+			ft_bzero(buf, ft_strlen(buf));
+			ft_bzero(buf2, ft_strlen(buf2));
+			close(sock_fd);
+			exit(0);
+		}
+	}
 	return (0);
 }
